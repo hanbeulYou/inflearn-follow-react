@@ -4,7 +4,18 @@ import Form from "./components/Form"
 import List from "./components/List"
 
 export default function App() {
-  const [todoData, setTodoData] = useState([])
+  const [todoData, setTodoData] = useState([
+    {
+      id: "1",
+      title: "해치웠나?",
+      completed: false,
+    },
+    {
+      id: "2",
+      title: "해치웠다!",
+      completed: false,
+    },
+  ])
   const [value, setValue] = useState("")
 
   const handleSubmit = (e) => {
