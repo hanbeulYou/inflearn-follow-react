@@ -40,15 +40,16 @@ export default function List({ todoData, setTodoData }) {
                   draggableId={data.id.toString()}
                   index={index}
                 >
-                  {(provided, snapshot) => {
+                  {(provided, snapshot) => (
                     <div 
                       key={data.id} 
                       {...provided.draggableProps} 
                       ref={provided.innerRef} 
                       {...provided.dragHandleProps}
-                      className={`${snapshot.isDragging ? "bg-gray-400" : ""} flex items-center justify-between w-full px-4 py-1 my-2`}
-                    >
-                      <div className='item-center'>
+                      className={
+                        `${snapshot.isDragging ? "bg-gray-50" : ""} flex items-center justify-between w-full px-4 py-1 my-2`
+                      } >
+                      <div className='items-center'>
                         <input 
                           type="checkbox"
                           onChange={() => handleCompleteChange(data.id)}
@@ -60,7 +61,7 @@ export default function List({ todoData, setTodoData }) {
                         <button onClick={() => handleClick(data.id)}>x</button>
                       </div>
                     </div>
-                  }}
+                  )}
                 </Draggable>
               ))}
               {provided.placeholder}
