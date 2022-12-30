@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import "./App.css"
 import Form from "./components/Form"
-import List from "./components/List"
+import Lists from "./components/Lists"
 
 export default function App() {
   const [todoData, setTodoData] = useState([
@@ -39,7 +39,7 @@ export default function App() {
           </h1>
         </div>
 
-        <List todoData={todoData} setTodoData={setTodoData}/>
+        <Lists todoData={todoData} setTodoData={setTodoData}/>
         <Form value={value} setValue={setValue} handleSubmit={handleSubmit}/>
         {/* handle submit을 props로 보내는 이유는 함수 내부에 다른 state가 존재하기 때문(setTodoData) */}
 
