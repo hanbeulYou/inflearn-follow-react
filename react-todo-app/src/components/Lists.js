@@ -2,7 +2,9 @@ import React from 'react'
 import List from './List'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export const Lists = React.memo(({ todoData, setTodoData }) => {
+export const Lists = React.memo(({ 
+  todoData, setTodoData, handleClick,
+}) => {
   const handleEnd = (result) => {
     if(!result.destination) return
 
@@ -26,6 +28,7 @@ export const Lists = React.memo(({ todoData, setTodoData }) => {
                 >
                   {(provided, snapshot) => (
                     <List
+                      handleClick={handleClick}          
                       key={data.id}
                       id={data.id}
                       title={data.title}
