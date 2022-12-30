@@ -16,15 +16,24 @@ export default function App() {
       title: "해치웠다!",
       completed: false,
     },
+    {
+      id: "3",
+      title: "해치우려나?",
+      completed: false,
+    },
   ])
   const [value, setValue] = useState("")
   
+  const handleRemoveClick = () => {
+    setTodoData([])
+  }
+
+  // React.memo , useCallback, useMemo 공부하기
   const handleClick = useCallback((id) => {
     const newTodoData = todoData.filter(data => data.id !== id)
     setTodoData(newTodoData)
     localStorage.setItem("todoData", JSON.stringify(newTodoData))
   }, [todoData])
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -45,6 +54,7 @@ export default function App() {
           <h1>
             할 일 목록
           </h1>
+          <button onClick={handleRemoveClick}>Delete All</button>
         </div>
 
         <Lists 
