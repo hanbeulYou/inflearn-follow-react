@@ -5,27 +5,15 @@ import Lists from "./components/Lists"
 
 export default function App() {
   
-  const [todoData, setTodoData] = useState([
-    {
-      id: "1",
-      title: "해치웠나?",
-      completed: false,
-    },
-    {
-      id: "2",
-      title: "해치웠다!",
-      completed: false,
-    },
-    {
-      id: "3",
-      title: "해치우려나?",
-      completed: false,
-    },
-  ])
+  const initialTodoData = localStorage.getItem("todoData") 
+    ? JSON.parse(localStorage.getItem("todoData")) 
+    : []
+  const [todoData, setTodoData] = useState(initialTodoData)
   const [value, setValue] = useState("")
   
   const handleRemoveClick = () => {
     setTodoData([])
+    localStorage.setItem("todoData", JSON.stringify([]))
   }
 
   // React.memo , useCallback, useMemo 공부하기
@@ -44,6 +32,7 @@ export default function App() {
       completed: false,
     }
     setTodoData(prev => [...prev, newTodo])
+    localStorage.setItem("todoData", JSON.stringify([...todoData, newTodo]))
     setValue("")
   }
 
