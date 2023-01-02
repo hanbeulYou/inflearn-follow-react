@@ -23,7 +23,7 @@ export default function Nav() {
 
   const handleChange = (e) => {
     setSearchvalue(e.target.value)
-    navigate(`/serach?q=${e.target.value}`)
+    navigate(`/search?q=${e.target.value}`)
   }
 
   return (
