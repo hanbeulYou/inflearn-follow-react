@@ -24,7 +24,7 @@ export default function MovieModal({
 
           <img
             className='modal__poster-img'
-            src={`${BASE_URL}/${backdrop_path}`}
+            src={`${BASE_URL}${backdrop_path}`}
             alt='modal__poster-img'
           />
 
