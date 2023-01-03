@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../api/axios'
-import MovieModal from './MoiveModal/Index'
+import MovieModal from './MovieModal/Index'
 import './Row.css'
 
 export default function Row({ isLargeRow, title, id, fetchUrl }) {
