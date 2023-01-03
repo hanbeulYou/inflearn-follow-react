@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import useOnClickOutside from '../../hooks/useOnClickOutside'
 import "./MovieModal.css"
 
 export default function MovieModal({
@@ -13,11 +14,14 @@ export default function MovieModal({
 }) {
   
   const BASE_URL = 'https://image.tmdb.org/t/p/original/'
+  const ref = useRef()
+
+  useOnClickOutside(ref, () => {setModalOpen(false)})
 
   return (
     <div className='presentation'>
       <div className='wrapper-modal'>
-        <div className='modal'>
+        <div className='modal' ref={ref}>
           <span onClick={() => setModalOpen(false)} className='modal-close'>
             X
           </span>
