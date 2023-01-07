@@ -3,6 +3,7 @@ import {useState} from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [disabled, setDisabled] = useState(false)
 
   return (
     <div className="App">
@@ -11,12 +12,14 @@ function App() {
         <button 
           data-testid="minus-button"
           onClick={() => setCount((count) => count - 1)}
+          disabled={disabled}
         >
           -
         </button>
         <button 
           data-testid="plus-button"
           onClick={() => setCount((count) => count + 1)}
+          disabled={disabled}
         >
           +
         </button>
@@ -24,6 +27,7 @@ function App() {
           <button
             style={{ backgroundColor: 'blue'}}
             data-testid="on/off-button"
+            onClick={() => setDisabled(prev => !prev)}
           >
             on/off
           </button>
